@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>เจษฎา ไชยยา| Anime Space</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700;800&family=IBM+Plex+Sans+Thai:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ===== Top nav ===== -->
+<nav class="nav">
+  <div class="nav-brand"><span class="dot"></span>Anime Space</div>
+  <div class="nav-links">
+    <a href="#profile">โปรไฟล์</a>
+    <a href="#top5">Top 5</a>
+  </div>
+</nav>
+
+<!-- ===== Hero banner ===== -->
+<header class="hero" id="hero">
+  <img class="hero-bg" src="https://placehold.co/1600x700/1F2233/FF7A59?text=The+Apothecary+Diaries" alt="">
+  <div class="hero-scrim"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">อันดับ 1 ในดวงใจ</p>
+    <h1>The Apothecary Diaries</h1>
+    <p class="hero-desc">เรื่องนี้คือที่สุดในใจเพราะ...</p>
+    <div class="hero-rating">
+      <span class="stars">★★★★★</span>
+      <span class="score">5.0 / 5</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- ===== Profile card ===== -->
+  <section class="profile-card" id="profile">
+    <div class="avatar">
+      <img src="https://placehold.co/200x200/FF7A59/FFFFFF?text=%F0%9F%90%B1" alt="รูปโปรไฟล์">
+    </div>
+    <div class="profile-text">
+      <p class="eyebrow">Character Profile</p>
+      <h2>เจษฎา ไชยยา</h2>
+      <p class="nickname">ชื่อเล่น <span>กิ่ง</span></p>
+      <p class="bio">
+        
+      </p>
+      <div class="pill-row">
+        <span class="pill">🎬 อนิเมะ</span>
+        <span class="pill">📚 การ์ตูน</span>
+        <span class="pill">🐱 ทาสแมว</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Section title ===== -->
+  <div class="section-title" id="top5">
+    <div>
+      <p class="eyebrow">MY COLLECTION</p>
+      <h2>Top 5 Favorite Anime</h2>
+    </div>
+  </div>
+
+  <!-- ===== Card grid ===== -->
+  <div class="anime-grid" id="animeGrid"></div>
+
+  <footer>
+    <p>made with 🧡 by เดียว &middot; hosted on <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a></p>
+  </footer>
+</div>
+
+<script>
+  // แก้ชื่อเรื่อง / คำโปรย / รูปโปสเตอร์ ของแต่ละเรื่องได้ตรงนี้
+  // เปลี่ยน img จาก placehold.co เป็น path รูปจริง เช่น "images/anime1.jpg"
+  const animeList = [
+    { rank: 1, title: "The Apothecary Diaries", note: "เรื่องนี้คือที่สุดในใจเพราะ...", img: "https://placehold.co/500x700/2A2D3E/FF7A59?text=The+Apothecary+Diaries" },
+    { rank: 2, title: "Kaiju No.8", note: "เรื่องนี้คือที่สุดในใจเพราะ...", img: "https://placehold.co/500x700/2A2D3E/7C5CFC?text=Kaiju+No.8" },
+    { rank: 3, title: "Alya Sometimes Hides Her Feelings In Russian", note: "เรื่องนี้คือที่สุดในใจเพราะ...", img: "https://placehold.co/500x700/2A2D3E/FF7A59?text=Alya" },
+    { rank: 4, title: "Kamisama Hajimemashita", note: "เรื่องนี้คือที่สุด in ใจ...", img: "https://placehold.co/500x700/2A2D3E/7C5CFC?text=Kamisama+Hajimemashita" },
+    { rank: 5, title: "Yamada-kun to Lv999 no Koi wo Suru", note: "เรื่องนี้คือที่สุดในใจเพราะ...", img: "https://placehold.co/500x700/2A2D3E/FF7A59?text=Yamada-kun+Lv999" }
+  ];
+
+  const grid = document.getElementById('animeGrid');
+  grid.innerHTML = animeList.map(a => `
+    <article class="card">
+      <div class="poster-wrap">
+        <span class="rank-badge">#${a.rank}</span>
+        <img src="${a.img}" alt="${a.title}">
+        <div class="play-overlay">
+          <span class="play-btn">▶</span>
+        </div>
+      </div>
+      <div class="card-info">
+        <p class="title">${a.title}</p>
+        <p class="note">${a.note}</p>
+      </div>
+    </article>
+  `).join('');
+</script>
+</body>
+</html>
